@@ -1,0 +1,30 @@
+name: Relatar problema
+description: Informe um problema reproduzível sem anexar dados pessoais.
+title: "[Problema] "
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Como reproduzir
+      description: Informe os passos, o resultado esperado e o resultado observado.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Sistema e versão
+      placeholder: Windows 11, Python 3.11, Mascot Studio 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidências sem dados privados
+      description: Remova nomes de usuário, caminhos pessoais, tokens e arquivos de terceiros.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacidade
+      options:
+        - label: Não incluí senhas, credenciais ou artes sem permissão.
+          required: true

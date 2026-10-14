@@ -1,0 +1,27 @@
+name: Testes
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.13']
+    runs-on: ${{ matrix.os }}
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Dependências
+        run: python -m pip install -e ".[dev]"
+      - name: Testes
+        run: python -m pytest -q
+      - name: Lint
+        run: python -m ruff check .
+      - name: Pacote
+        run: python -m build

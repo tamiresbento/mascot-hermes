@@ -1,0 +1,26 @@
+name: Sugerir melhoria
+description: Proponha uma melhoria para o editor, mascotes ou integração com agentes.
+title: "[Melhoria] "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Qual problema você quer resolver?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Solução proposta e exemplo de uso
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Editor de movimentos
+        - Mascotes flutuantes
+        - Importação e exportação
+        - Agentes e eventos locais
+        - Documentação e acessibilidade
